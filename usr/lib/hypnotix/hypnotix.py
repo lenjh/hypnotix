@@ -306,7 +306,10 @@ class MainWindow():
     def on_mpv_drawing_area_realize(self, widget):
         if self.mpv == None:
             print("Creating new MPV instance")
-            self.mpv = mpv.MPV(ytdl=True, wid=str(widget.get_window().get_xid()))
+            self.mpv = mpv.MPV(ytdl=True,
+                       wid=str(widget.get_window().get_xid()),
+                       input_default_bindings=True,
+                       osc=True)
 
     def on_mpv_drawing_area_draw(self, widget, cr):
         cr.set_source_rgb(0.0, 0.0, 0.0)
